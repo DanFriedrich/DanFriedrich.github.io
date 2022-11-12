@@ -134,7 +134,7 @@ class App{
         
         function onSessionStart(){
             self.ui.mesh.position.set(0, -0.5, -1.1);
-            self.camesh.add(self.ui.mesh);
+            self.camera.add(self.ui.mesh);
         }
         
         function onSessionEnd(){
