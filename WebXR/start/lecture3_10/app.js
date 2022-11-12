@@ -134,7 +134,7 @@ class App{
         
         function onSessionStart(){
             self.ui.mesh.position.set(0, -0.5, -1.1);
-            self.camera.add(self)
+            self.camesh.add(self.ui.mesh);
         }
         
         function onSessionEnd(){
@@ -144,8 +144,9 @@ class App{
         const btn = new ARButton(this.renderer, {onSessionStart, onSessionEnd,
         sessionInit: {optionalFeatures: ['dom-overlay'], domOverlay: {root:
         document.body}} });
-        
-        this.renderer.setAnimationLoop( this.render.bind(this) );
+
+        this.renderer.setAnimationLoop(this.render.bind(this));
+
     }
     
     resize(){
