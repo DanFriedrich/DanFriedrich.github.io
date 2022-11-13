@@ -190,7 +190,7 @@ class App{
         });
 
         this.gestures.addEventListener('rotate', (ev)=>{
-            console.log(ev);
+            //console.log(ev);
             if(ev.initialise !== undefined){
                 self.startQuaternion = self.knight.object.quaternion.clone();
             }else{
