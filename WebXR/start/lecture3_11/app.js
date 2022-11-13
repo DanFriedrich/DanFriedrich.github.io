@@ -187,6 +187,17 @@ class App{
                 self.ui.config.updateElement('info', `pinch delta:${ev.delta.toFixed(3)}
                 scale:${ev.scale.toFixed(2)}`);
             }
+        });
+
+        this.gestures.addEventListener('rotate', (ev)=>{
+            console.log(ev);
+            if(ev.initialise !== undefined){
+                self.startQuaternion = self.knight.object.quaternion.clone();
+            }else{
+                self.knight.object.quaternion.copy(self.startQuaternion);
+                self.knight.object.rotateY(ev.theta);
+                self.ui.updateElement('info', `rotate${ev.theta.toFixed(3)}`);
+            }
         })
 
         this.renderer.setAnimationLoop( this.render.bind(this) );
