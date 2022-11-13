@@ -1,5 +1,5 @@
 import * as THREE from '../../libs/three125/three.module.js';
-import { OrbitControls } from '../../libs/three125OrbitControls.js';
+import { OrbitControls } from '../../libs/three125/OrbitControls.js';
 import { GLTFLoader } from '../../libs/three125/GLTFLoader.js';
 import { Stats } from '../../libs/stats.module.js';
 import { CanvasUI } from '../../libs/three125/CanvasUI.js'
@@ -142,7 +142,28 @@ class App{
         const btn = new ARButton( this.renderer, { onSessionStart, onSessionEnd } );
         
         //Add gestures here
+        this.gestures = new ControllerGestures(this.renderer);
+
+        this.gestures.addEventListener('tap', (ev)=>{
+            console.log('tap');
+            self.ui.updateElement('info', 'tap');
         
+            if(!self.knight.object.visible){
+                self.knight.object.visible = true;
+                self.knight.object.position.set(0,-0.3,-0.5).add(ev.position);
+                self.scene.add(self.knight.object);
+            }
+        });
+
+        this.gestures.addEventListener('swipe', (ev)=>{
+            console.log(ev);
+            self.ui.updateElement('info', `swipe${ev.direction}`);
+            if(self.knight.object.visible){
+                self.knight.object.visible = false;
+                self.scene.remove(self.knight.object);
+            }
+        })
+
         this.renderer.setAnimationLoop( this.render.bind(this) );
     }
     
