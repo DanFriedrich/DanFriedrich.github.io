@@ -162,6 +162,31 @@ class App{
                 self.knight.object.visible = false;
                 self.scene.remove(self.knight.object);
             }
+        });
+
+        this.gestures.addEventListener('pan', (ev)=>{
+            console.log(ev);
+            if (ev.initialise !== undefined){
+                self.startPosition = self.knight.object.position.clone();
+            }else{
+                const pos = self.startPosition.clone().add(
+                    ev.delta.multiplyScalar(3));
+                    self.knight.object.position.copy(pos);
+                    self.ui.updateElement('info',`pan x:${ev.delta.x.toFixed(3)}
+                    y:${ev.delta.y.toFixed(3)} z:${ev.delta.z.toFixed(3)}`);
+            }
+        });
+
+        this.gestures.addEventListener('pinch', (ev)=>{
+            console.log(ev);
+            if(ev.initialise !== undefined){
+                self.startScale = self.knight.object.scale.clone();
+            }else{
+                const scale = self.startScale.clone().multiplyScalar(ev.scale);
+                self.knight.object.scale.copy(scale);
+                self.ui.config.updateElement('info', `pinch delta:${ev.delta.toFixed(3)}
+                scale:${ev.scale.toFixed(2)}`);
+            }
         })
 
         this.renderer.setAnimationLoop( this.render.bind(this) );
