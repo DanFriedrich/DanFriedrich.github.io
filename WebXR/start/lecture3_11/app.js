@@ -184,7 +184,7 @@ class App{
             }else{
                 const scale = self.startScale.clone().multiplyScalar(ev.scale);
                 self.knight.object.scale.copy(scale);
-                self.ui.config.updateElement('info', `pinch delta:${ev.delta.toFixed(3)}
+                self.ui.updateElement('info', `pinch delta:${ev.delta.toFixed(3)}
                 scale:${ev.scale.toFixed(2)}`);
             }
         });
