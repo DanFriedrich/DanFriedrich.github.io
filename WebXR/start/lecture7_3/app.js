@@ -146,13 +146,14 @@ class App{
     initAR(){
         //TO DO 2: Start an AR session
         let currentSession = null;
+        const self = this;
 
         const sessionInit = { requiredFeatures: ['hit-test']};
 
         function onSessionStarted(session){
             session.addEventListener('end', onSessionEnded);
 
-            self.renderer.xr.setReferenceSpaceTpe('local');
+            self.renderer.xr.setReferenceSpaceType('local');
             self.renderer.xr.setSession(session);
 
             currentSession = session;
