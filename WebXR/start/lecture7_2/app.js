@@ -88,7 +88,7 @@ class App{
 				
                 //Step 1 - create a mixer and an action
                 const mixer = new THREE.AnimationMixer(self.model);
-                const action = new mixer.clipAction(gltf.animations[0]);
+                const action = mixer.clipAction(gltf.animations[0]);
                 action.loop = THREE.LoopOnce;
                 self.action = action;
 
