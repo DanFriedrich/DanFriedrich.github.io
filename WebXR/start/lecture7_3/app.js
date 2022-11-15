@@ -54,7 +54,7 @@ class App{
                 if(supported){
                     const collection = document.getElementsByClassName("ar-button");
                     [...collection].forEach(el => {
-                        el.getElementsByClassName.display = 'block';
+                        el.style.display = 'block';
                     })
                 }
             })
