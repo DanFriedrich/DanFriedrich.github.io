@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!--favicon -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../css/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../css/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../css/favicon/favicon-16x16.png">
+  <link rel="manifest" href="../../css/favicon/site.webmanifest">
+  <link rel="mask-icon" href="../../css/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+    
+  <style>
+      body{
+          margin: 0;
+      }  
+  </style>
+
+  <title>Lecture 2.5</title>
+</head>
+
+<body>
+   <script>
+     //Place your code here
+     const planets = ["Mercúrio","Vênus","Terra","Marte","Júpiter","Saturno","Urano"];
+     planets.push("Netuno");
+
+     console.log("Há "+ planets.length + " planetas no nosso sistema solar");
+     console.log("Nosso planeta é a "+ planets[2]);
+
+      planets.push("Plutão");
+     console.log("Até 2006, havia " + planets.length + " planetas no nosso sistema solar");
+    const plutao = planets.pop();
+    console.log("Em 2006 "+ plutao + " foi desclassificado como um planeta. Agora há "+ planets.length +" planetas no nosso sistema solar.");
+
+    function month(){
+      const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "junho", "julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+      const monthID = new Date().getMonth();
+      return months[monthID];
+    }
+   </script> 
+</body>
+
+</html>
